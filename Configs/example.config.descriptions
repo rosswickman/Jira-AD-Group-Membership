@@ -1,0 +1,30 @@
+{
+    "Filter":{
+        "Name":"example.config",
+        "Description":"This is an example configuration file."
+    },
+    "Issue":{
+        "Project":"Key",                    # Jira Project Key to look for issues in
+        "Type":"Service Request"            # Only look for issues of this custom or built-in 'type'
+    },
+    "Provision":{
+        "Status":"In Progress"              # Status of issue to be in for automation to run
+    },
+    "Transition":{
+        "Status":"Resolve this issue",      # Status to transition issue to after successful run
+        "Labels": [
+            "provisioning_script"           # Currently a single Label to apply during transition
+        ],
+        # This comment is added to issue during transtion to the next status (typically closure)
+        "Comment":"This user has now been provisioned access to the their development envrioment."
+    },
+    "ActiveDirectory":{
+        "Domain":"Tactful.Cloud",                                   # CURRENTLY NOT USED - Domain where groups are located
+        "Server":"localhost",                                       # CURRENTLY NOT USED - Domain Server to use when looking for groups
+        "SearchBase":"ou=jira,ou=groups,dc=tactful,dc=cloud",       # CURRENTLY NOT USED - Path to specifically look for AD Groups
+        "Groups": [                                                 # List groups (comma seperated) for adding issue reporters to
+            "testGroup1", 
+            "testGroup2"
+        ]
+    }
+}
